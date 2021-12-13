@@ -1,0 +1,54 @@
+{
+	"name": "yo-here",
+	"displayName": "Yo Here",
+	"description": "Use yeoman in sub folder",
+	"version": "0.0.1",
+	"keywords": ["yeoman", "yo"],
+	"engines": {
+		"vscode": "^1.62.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:yo-here.create"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "yo-here.create",
+				"title": "Create snippets from template"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"command": "yo-here.create"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"lint": "eslint src --ext ts"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@types/vscode": "^1.63.0",
+		"@types/yeoman-environment": "^2.10.5",
+		"@typescript-eslint/eslint-plugin": "^4.31.1",
+		"@typescript-eslint/parser": "^4.31.1",
+		"@vscode/test-electron": "^1.6.2",
+		"eslint": "^7.32.0",
+		"glob": "^7.1.7",
+		"typescript": "^4.4.3"
+	},
+	"dependencies": {
+		"yeoman-environment": "^3.8.1"
+	}
+}
