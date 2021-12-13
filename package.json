@@ -7,6 +7,7 @@
 		"yeoman",
 		"yo"
 	],
+	"publisher": "MoyuScript",
 	"engines": {
 		"vscode": "^1.63.0"
 	},
@@ -16,6 +17,7 @@
 	"activationEvents": [
 		"onCommand:yo-here.create"
 	],
+	"repository": "https://github.com/MoyuScript/yo-here",
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
