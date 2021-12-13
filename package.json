@@ -3,7 +3,10 @@
 	"displayName": "Yo Here",
 	"description": "Use yeoman in sub folder",
 	"version": "0.0.1",
-	"keywords": ["yeoman", "yo"],
+	"keywords": [
+		"yeoman",
+		"yo"
+	],
 	"engines": {
 		"vscode": "^1.62.0"
 	},
@@ -18,7 +21,7 @@
 		"commands": [
 			{
 				"command": "yo-here.create",
-				"title": "Create snippets from template"
+				"title": "Run yo here"
 			}
 		],
 		"menus": {
