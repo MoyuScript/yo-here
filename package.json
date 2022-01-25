@@ -2,7 +2,7 @@
 	"name": "yo-here",
 	"displayName": "Yo Here",
 	"description": "Use yeoman in sub folder",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"keywords": [
 		"yeoman",
 		"yo"
@@ -24,12 +24,19 @@
 			{
 				"command": "yo-here.create",
 				"title": "Run yo here"
+			},
+			{
+				"command": "yo-here.createNoCache",
+				"title": "Run yo here (no cache)"
 			}
 		],
 		"menus": {
 			"explorer/context": [
 				{
 					"command": "yo-here.create"
+				},
+				{
+					"command": "yo-here.createNoCache"
 				}
 			]
 		}
