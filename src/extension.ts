@@ -5,15 +5,18 @@ import * as yeoman from 'yeoman-environment';
 
 export function activate(context: vscode.ExtensionContext) {
 	
-	vscode.commands.registerCommand('yo-here.create', async (arg) => {
-		const cwd = path.dirname(arg.fsPath);
-		
-		const env = yeoman.createEnv();
-		env.lookup();
+	let cachedGeneratorNames: string[] | null = null;
 
-		const generators = env.getGeneratorNames();
-		
-		const pick = await vscode.window.showQuickPick(generators, {
+	const cmd = async (noCache: boolean = false, ...arg: any) => {
+		const cwd = path.dirname(arg.fsPath);
+
+		if (noCache || !cachedGeneratorNames) {
+			const env = yeoman.createEnv();
+			env.lookup();
+			cachedGeneratorNames = env.getGeneratorNames();
+		}
+
+		const pick = await vscode.window.showQuickPick(cachedGeneratorNames, {
 			title: 'Choose a generator'
 		});
 
@@ -33,6 +36,9 @@ export function activate(context: vscode.ExtensionContext) {
 		
 		terminal.show(false);
 		terminal.sendText(`yo ${pick}`);
-	});
+	}
+
+	vscode.commands.registerCommand('yo-here.create', cmd);
+	vscode.commands.registerCommand('yo-here.createNoCache', cmd);
 }
 
